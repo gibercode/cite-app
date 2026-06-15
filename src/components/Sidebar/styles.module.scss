@@ -1,0 +1,41 @@
+@use "@/styles" as *;
+
+.sidebar {
+  width: 16rem;
+  min-height: calc(100vh - 4rem);
+  padding: 1.5rem 1rem;
+  background-color: $white;
+  border-right: 1px solid rgba($black, 0.08);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.75rem;
+  color: $jet-black;
+  font-family: $google-sans;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.link:hover,
+.active {
+  background-color: rgba($purple, 0.12);
+  color: $purple;
+}

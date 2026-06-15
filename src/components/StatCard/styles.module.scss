@@ -1,0 +1,54 @@
+@use "@/styles" as *;
+
+.card {
+  background-color: $white;
+  border: 1px dashed rgba($purple, 0.45);
+  border-radius: 0.875rem;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.title {
+  font-family: $montserrat;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba($jet-black, 0.6);
+  margin: 0;
+}
+
+.value {
+  font-family: $montserrat;
+  font-size: 2rem;
+  font-weight: 700;
+  color: $jet-black;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: $montserrat;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin: 0;
+
+  &.up {
+    color: $green;
+  }
+
+  &.down {
+    color: $red;
+  }
+
+  &.neutral {
+    color: rgba($jet-black, 0.45);
+  }
+}
+
+.arrowUp,
+.arrowDown {
+  font-style: normal;
+}

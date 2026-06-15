@@ -1,0 +1,11 @@
+@use "@/styles" as *;
+
+.layout {
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: $smoke-white;
+}

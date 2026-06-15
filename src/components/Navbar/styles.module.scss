@@ -1,0 +1,40 @@
+@use "@/styles" as *;
+
+.navbar {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  min-height: 4rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $white;
+  border-bottom: 1px solid rgba($black, 0.08);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $black;
+  font-family: $montserrat;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: $purple;
+  color: $white;
+  font-family: $montserrat;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
