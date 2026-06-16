@@ -220,19 +220,3 @@
   cursor: not-allowed;
   opacity: 0.45;
 }
-
-@media (max-width: 720px) {
-  .modal {
-    height: min(88vh, 38rem);
-  }
-
-  .grid,
-  .steps {
-    grid-template-columns: 1fr;
-  }
-
-  .actions {
-    align-items: stretch;
-    flex-direction: column-reverse;
-  }
-}

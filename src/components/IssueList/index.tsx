@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { priorityLabel, statusLabel } from "@/constants";
 import type { Incident } from "@/types";
 import { formatDate } from "@/utils";
@@ -54,7 +55,11 @@ export const IssueList = ({
   return (
     <section className={styles.list} aria-label="Listado de incidencias">
       {visibleIncidents.map((incident) => (
-        <article className={styles.item} key={incident.id}>
+        <Link
+          className={styles.item}
+          key={incident.id}
+          to={`/incidencias/${incident.id}`}
+        >
           <div className={styles.header}>
             <div>
               <div className={styles.meta}>
@@ -99,7 +104,7 @@ export const IssueList = ({
               <span>Creada: {formatDate(incident.createdAt)}</span>
             </div>
           </div>
-        </article>
+        </Link>
       ))}
 
       {(showPaginationInfo || hasMore) && (

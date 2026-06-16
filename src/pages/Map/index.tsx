@@ -1,10 +1,12 @@
 import { Plus } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Button, Map as MapView } from "@/components";
 import { CARACAS_COORDINATES } from "@/constants";
 import { useCreateIncidentModalStore, useIncidentStore } from "@/store";
 import styles from "./styles.module.scss";
 
 export const MapPage = () => {
+  const navigate = useNavigate();
   const incidents = useIncidentStore((state) => state.incidents);
   const openCreateIncidentModal = useCreateIncidentModalStore(
     (state) => state.openCreateIncidentModal,
@@ -40,6 +42,7 @@ export const MapPage = () => {
         center={CARACAS_COORDINATES}
         height="min(64vh, 720px)"
         markers={incidentMarkers}
+        onMarkerClick={(marker) => navigate(`/incidencias/${marker.id}`)}
         zoom={11}
       />
     </div>

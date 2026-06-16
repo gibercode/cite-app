@@ -11,6 +11,7 @@ type MapProps = {
   markerCoordinates?: MapCoordinates;
   markers?: MapMarker[];
   onCoordinatesSelect?: (coordinates: MapCoordinates) => void;
+  onMarkerClick?: (marker: MapMarker) => void;
   zoom?: number;
 };
 
@@ -22,6 +23,7 @@ export const Map = ({
   markerCoordinates = center,
   markers,
   onCoordinatesSelect,
+  onMarkerClick,
   zoom = 11,
 }: MapProps) => {
   const [centerLng, centerLat] = center;
@@ -44,10 +46,50 @@ export const Map = ({
   const initialMarkersRef = useRef(mapMarkers);
   const initialZoomRef = useRef(zoom);
   const onCoordinatesSelectRef = useRef(onCoordinatesSelect);
+  const onMarkerClickRef = useRef(onMarkerClick);
 
   useEffect(() => {
     onCoordinatesSelectRef.current = onCoordinatesSelect;
   }, [onCoordinatesSelect]);
+
+  useEffect(() => {
+    onMarkerClickRef.current = onMarkerClick;
+  }, [onMarkerClick]);
+
+  const createMarker = (marker: MapMarker) => {
+    const popupContent = document.createElement("div");
+    popupContent.style.display = "grid";
+    popupContent.style.gap = "0.5rem";
+
+    const title = document.createElement("strong");
+    title.textContent = marker.title;
+    popupContent.appendChild(title);
+
+    if (onMarkerClickRef.current) {
+      const action = document.createElement("button");
+      action.textContent = "Ver incidencia";
+      action.type = "button";
+      action.style.border = "0";
+      action.style.borderRadius = "0.5rem";
+      action.style.backgroundColor = "#5e7ce2";
+      action.style.color = "#ffffff";
+      action.style.cursor = "pointer";
+      action.style.fontWeight = "700";
+      action.style.padding = "0.45rem 0.65rem";
+      action.addEventListener("click", (event) => {
+        event.stopPropagation();
+        onMarkerClickRef.current?.(marker);
+      });
+      popupContent.appendChild(action);
+    }
+
+    const mapMarker = new mapboxgl.Marker()
+      .setLngLat(marker.coordinates)
+      .setPopup(new mapboxgl.Popup({ offset: 24 }).setDOMContent(popupContent))
+      .addTo(mapRef.current!);
+
+    return mapMarker;
+  };
 
   useEffect(() => {
     if (!mapContainerRef.current || mapRef.current) return;
@@ -61,12 +103,7 @@ export const Map = ({
 
     mapRef.current.addControl(new mapboxgl.NavigationControl(), "top-right");
 
-    markerRefs.current = initialMarkersRef.current.map((marker) =>
-      new mapboxgl.Marker()
-        .setLngLat(marker.coordinates)
-        .setPopup(new mapboxgl.Popup({ offset: 24 }).setText(marker.title))
-        .addTo(mapRef.current!),
-    );
+    markerRefs.current = initialMarkersRef.current.map(createMarker);
 
     const handleMapClick = (event: mapboxgl.MapMouseEvent) => {
       onCoordinatesSelectRef.current?.([event.lngLat.lng, event.lngLat.lat]);
@@ -92,12 +129,7 @@ export const Map = ({
     if (!mapRef.current) return;
 
     markerRefs.current.forEach((marker) => marker.remove());
-    markerRefs.current = mapMarkers.map((marker) =>
-      new mapboxgl.Marker()
-        .setLngLat(marker.coordinates)
-        .setPopup(new mapboxgl.Popup({ offset: 24 }).setText(marker.title))
-        .addTo(mapRef.current!),
-    );
+    markerRefs.current = mapMarkers.map(createMarker);
   }, [mapMarkers]);
 
   return (

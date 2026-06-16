@@ -1,0 +1,226 @@
+@use "@/styles" as *;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  color: $purple;
+  font-family: $google-sans;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.eyebrow {
+  color: $purple;
+  font-family: $google-sans;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  color: $jet-black;
+  font-family: $montserrat;
+  font-size: clamp(1.75rem, 2.6vw, 2.45rem);
+  line-height: 1.12;
+  margin: 0;
+}
+
+.header p {
+  max-width: 52rem;
+  color: $text-body-muted;
+  font-family: $google-sans;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.55;
+  margin: 0.75rem 0 0;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: 1rem;
+}
+
+.panel,
+.empty {
+  border: 1px solid $border-subtle;
+  border-radius: 0.75rem;
+  background-color: $white;
+  padding: 1rem;
+}
+
+.panel h2 {
+  color: $jet-black;
+  font-family: $montserrat;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  margin: 0 0 0.9rem;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0;
+}
+
+.details div,
+.peopleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.peopleList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.peopleBlock {
+  padding: 0.8rem 0;
+}
+
+.peopleBlock:first-child {
+  padding-top: 0;
+}
+
+.peopleBlock:not(:last-child) {
+  border-bottom: 1px solid $divider-subtle;
+}
+
+.details dt,
+.peopleBlock h3 {
+  color: $text-tertiary;
+  font-family: $google-sans;
+  font-size: 0.76rem;
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.details dd,
+.peopleBlock p,
+.muted,
+.empty {
+  color: $text-body-muted;
+  font-family: $google-sans;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.badges,
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.priority,
+.status,
+.tags span {
+  border-radius: 999px;
+  font-family: $google-sans;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.35rem 0.65rem;
+  white-space: nowrap;
+}
+
+.high {
+  background-color: $red-surface;
+  color: $red;
+}
+
+.medium {
+  background-color: $purple-surface-strong;
+  color: $purple;
+}
+
+.low {
+  background-color: $green-surface;
+  color: $green;
+}
+
+.open {
+  background-color: $red-surface-soft;
+  color: $red;
+}
+
+.on_pause {
+  background-color: $purple-surface;
+  color: $purple;
+}
+
+.closed {
+  background-color: $green-surface;
+  color: $green;
+}
+
+.locationHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $jet-black;
+  font-family: $google-sans;
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+}
+
+.tags span {
+  border: 1px solid $purple-border;
+  background-color: $smoke-white;
+  color: $jet-black;
+}
+
+.mediaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  gap: 0.85rem;
+}
+
+.mediaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  color: $text-body-muted;
+  font-family: $google-sans;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mediaItem img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid $border-default;
+  border-radius: 0.625rem;
+  object-fit: cover;
+}
+
+.mediaItem span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
