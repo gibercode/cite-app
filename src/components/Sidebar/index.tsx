@@ -1,7 +1,7 @@
 import { LayoutDashboard, Map, TriangleAlert } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.scss";
-3;
+
 const links = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/incidencias", label: "Incidencias", icon: TriangleAlert },

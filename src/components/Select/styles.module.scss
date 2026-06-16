@@ -1,0 +1,36 @@
+@use "@/styles" as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: $text-secondary;
+  font-family: $google-sans;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.field select {
+  min-width: 12rem;
+  height: 2.65rem;
+  border: 1px solid $border-default;
+  border-radius: 0.625rem;
+  background-color: $smoke-white;
+  color: $jet-black;
+  font-family: $google-sans;
+  font-size: 0.92rem;
+  font-weight: 600;
+  outline: none;
+  padding: 0 0.75rem;
+}
+
+.field select:focus {
+  border-color: $purple-focus;
+  box-shadow: 0 0 0 3px $purple-surface;
+}
+
+@media (max-width: 760px) {
+  .field select {
+    min-width: 100%;
+  }
+}

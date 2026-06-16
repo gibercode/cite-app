@@ -1,4 +1,8 @@
 export { Layout } from "./Layout";
+export { IssueFilters } from "./IssueFilters";
+export { IssueList } from "./IssueList";
+export { IssueSummary } from "./IssueSummary";
 export { Navbar } from "./Navbar";
+export { Select } from "./Select";
 export { Sidebar } from "./Sidebar";
 export { StatCard } from "./StatCard";

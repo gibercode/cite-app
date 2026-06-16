@@ -5,7 +5,7 @@
   min-height: calc(100vh - 4rem);
   padding: 1.5rem 1rem;
   background-color: $white;
-  border-right: 1px solid rgba($black, 0.08);
+  border-right: 1px solid $border-subtle;
 }
 
 .nav {
@@ -36,6 +36,6 @@
 
 .link:hover,
 .active {
-  background-color: rgba($purple, 0.12);
+  background-color: $purple-surface;
   color: $purple;
 }

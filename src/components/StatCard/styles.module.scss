@@ -2,7 +2,7 @@
 
 .card {
   background-color: $white;
-  border: 1px dashed rgba($purple, 0.45);
+  border: 1px dashed $purple-border-dashed;
   border-radius: 0.875rem;
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -13,7 +13,7 @@
   font-family: $montserrat;
   font-size: 0.875rem;
   font-weight: 500;
-  color: rgba($jet-black, 0.6);
+  color: $text-soft;
   margin: 0;
 }
 
@@ -44,7 +44,7 @@
   }
 
   &.neutral {
-    color: rgba($jet-black, 0.45);
+    color: $text-disabled;
   }
 }
 

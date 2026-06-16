@@ -1,0 +1,36 @@
+@use "@/styles" as *;
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid $border-subtle;
+  border-radius: 0.75rem;
+  background-color: $white;
+}
+
+.eyebrow {
+  color: $text-tertiary;
+  font-family: $google-sans;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+}
+
+.title {
+  color: $jet-black;
+  font-family: $montserrat;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}

@@ -1,0 +1,38 @@
+import type {
+  IncidentStatus,
+  Priority,
+  PriorityOption,
+  StatusOption,
+} from "@/types";
+
+export const priorityWeight: Record<Priority, number> = {
+  high: 3,
+  medium: 2,
+  low: 1,
+};
+
+export const priorityOptions: PriorityOption[] = [
+  { value: "all", label: "Todas" },
+  { value: "high", label: "Alta" },
+  { value: "medium", label: "Media" },
+  { value: "low", label: "Baja" },
+];
+
+export const priorityLabel: Record<Priority, string> = {
+  high: "Alta",
+  medium: "Media",
+  low: "Baja",
+};
+
+export const statusLabel: Record<IncidentStatus, string> = {
+  open: "Abierta",
+  on_pause: "En pausa",
+  closed: "Cerrada",
+};
+
+export const statusOptions: StatusOption[] = [
+  { value: "all", label: "Todos" },
+  { value: "open", label: "Abierta" },
+  { value: "on_pause", label: "En pausa" },
+  { value: "closed", label: "Cerrada" },
+];

@@ -5,3 +5,28 @@ $jet-black: #22333b;
 $smoke-white: #f8fafc;
 $white: #ffffff;
 $black: #000000;
+
+$border-subtle: rgba($black, 0.08);
+$border-default: rgba($black, 0.1);
+$divider-subtle: rgba($black, 0.06);
+
+$text-body-muted: rgba($jet-black, 0.72);
+$text-muted: rgba($jet-black, 0.65);
+$text-secondary: rgba($jet-black, 0.62);
+$text-soft: rgba($jet-black, 0.6);
+$text-tertiary: rgba($jet-black, 0.55);
+$text-disabled: rgba($jet-black, 0.45);
+$text-faint: rgba($jet-black, 0.35);
+
+$purple-surface-soft: rgba($purple, 0.1);
+$purple-surface: rgba($purple, 0.12);
+$purple-surface-strong: rgba($purple, 0.14);
+$purple-surface-hover: rgba($purple, 0.16);
+$purple-border: rgba($purple, 0.24);
+$purple-border-strong: rgba($purple, 0.48);
+$purple-border-dashed: rgba($purple, 0.45);
+$purple-focus: rgba($purple, 0.75);
+
+$red-surface-soft: rgba($red, 0.1);
+$red-surface: rgba($red, 0.12);
+$green-surface: rgba($green, 0.12);
