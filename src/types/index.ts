@@ -1,5 +1,6 @@
 export type { ButtonProps } from "./button";
 export type { CreateIncidentModalState } from "./createIncidentModalStore";
+export type { BarStyle, DashboardChartsProps } from "./dashboardCharts";
 export type { Incident } from "./incident";
 export type { InputProps } from "./input";
 export type { Person } from "./person";

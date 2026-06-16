@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { IssueList, IssueSummary } from "@/components";
+import { DashboardCharts, IssueList, IssueSummary } from "@/components";
 import { useIncidentStore } from "@/store";
 import type { Incident } from "@/types";
 import styles from "./styles.module.scss";
@@ -31,9 +31,10 @@ export const Home = () => {
     [incidents],
   );
 
-  const latestIncidents = useMemo(() => getLatestIncidents(incidents), [
-    incidents,
-  ]);
+  const latestIncidents = useMemo(
+    () => getLatestIncidents(incidents),
+    [incidents],
+  );
 
   return (
     <div className={styles.page}>
@@ -49,6 +50,7 @@ export const Home = () => {
       </header>
 
       <IssueSummary {...summary} />
+      <DashboardCharts incidents={incidents} />
 
       <section className={styles.latest}>
         <div>

@@ -1,5 +1,6 @@
 export { Button } from "./Button";
 export { CreateIncidentModal } from "./CreateIncidentModal";
+export { DashboardCharts } from "./DashboardCharts";
 export { Layout } from "./Layout";
 export { Input } from "./Input";
 export { IssueFilters } from "./IssueFilters";

@@ -8,4 +8,9 @@ export const formatDate = (date: string | null) => {
   }).format(new Date(date));
 };
 
+export const getPercent = (value: number, total: number) => {
+  if (!total) return 0;
+  return Math.round((value / total) * 100);
+};
+
 export { getPersonOptions, getUniquePeople } from "./people";

@@ -37,6 +37,10 @@ export const statusOptions: StatusOption[] = [
   { value: "closed", label: "Cerrada" },
 ];
 
+export const statusOrder: IncidentStatus[] = ["open", "on_pause", "closed"];
+
+export const priorityOrder: Priority[] = ["high", "medium", "low"];
+
 export const CARACAS_COORDINATES: [number, number] = [-66.9036, 10.4806];
 
 export const CREATE_INCIDENT_STEPS = [
