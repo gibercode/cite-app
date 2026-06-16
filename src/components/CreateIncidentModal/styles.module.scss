@@ -1,0 +1,238 @@
+@use "@/styles" as *;
+
+.overlay {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background-color: rgba($black, 0.42);
+  padding: 1.25rem;
+}
+
+.modal {
+  width: min(48rem, 100%);
+  height: min(82vh, 38rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+  border: 1px solid $border-subtle;
+  border-radius: 0.75rem;
+  background-color: $white;
+  padding: 1.25rem;
+  box-shadow: 0 1.5rem 4rem rgba($black, 0.18);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.eyebrow {
+  color: $purple;
+  font-family: $google-sans;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  color: $jet-black;
+  font-family: $montserrat;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.closeButton {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $border-default;
+  border-radius: 0.625rem;
+  background-color: $smoke-white;
+  color: $jet-black;
+  cursor: pointer;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.steps span {
+  border: 1px solid $border-default;
+  border-radius: 0.625rem;
+  color: $text-secondary;
+  font-family: $google-sans;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.6rem 0.75rem;
+  text-align: center;
+}
+
+.steps .activeStep {
+  border-color: $purple-border-strong;
+  background-color: $purple-surface;
+  color: $purple;
+}
+
+.form {
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.grid {
+  min-height: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  align-content: start;
+  overflow: auto;
+  padding-right: 0.25rem;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.error {
+  grid-column: 1 / -1;
+  color: $red;
+  font-family: $google-sans;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin: -0.45rem 0 0;
+}
+
+.fileField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: $text-secondary;
+  font-family: $google-sans;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mapField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: $text-secondary;
+  font-family: $google-sans;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mapField > div {
+  overflow: hidden;
+  border: 1px solid $border-default;
+  border-radius: 0.625rem;
+}
+
+.fileField input {
+  min-height: 2.65rem;
+  border: 1px solid $border-default;
+  border-radius: 0.625rem;
+  background-color: $smoke-white;
+  color: $jet-black;
+  font-family: $google-sans;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.65rem 0.75rem;
+}
+
+.fileField input:focus {
+  border-color: $purple-focus;
+  box-shadow: 0 0 0 3px $purple-surface;
+  outline: none;
+}
+
+.previewList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.preview {
+  width: 6.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.preview img {
+  width: 6.5rem;
+  height: 4.5rem;
+  border: 1px solid $border-default;
+  border-radius: 0.625rem;
+  background-color: $smoke-white;
+  object-fit: cover;
+}
+
+.preview figcaption {
+  overflow: hidden;
+  color: $text-secondary;
+  font-family: $google-sans;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  border-top: 1px solid $divider-subtle;
+  padding-top: 1rem;
+}
+
+.secondaryButton {
+  min-height: 2.75rem;
+  border: 1px solid $border-default;
+  border-radius: 0.625rem;
+  background-color: $white;
+  color: $jet-black;
+  cursor: pointer;
+  font-family: $google-sans;
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 0.7rem 1rem;
+}
+
+.secondaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+@media (max-width: 720px) {
+  .modal {
+    height: min(88vh, 38rem);
+  }
+
+  .grid,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+}

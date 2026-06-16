@@ -1,6 +1,7 @@
 @use "@/styles" as *;
 
 .field {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
@@ -10,32 +11,128 @@
   font-weight: 700;
 }
 
-.field select {
+.trigger {
+  width: 100%;
   min-width: 12rem;
-  min-height: 7rem;
+  min-height: 2.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   border: 1px solid $border-default;
   border-radius: 0.625rem;
   background-color: $smoke-white;
   color: $jet-black;
+  cursor: pointer;
   font-family: $google-sans;
   font-size: 0.92rem;
   font-weight: 600;
   outline: none;
-  padding: 0.5rem;
+  padding: 0.38rem 0.55rem 0.38rem 0.75rem;
+  text-align: left;
 }
 
-.field select:focus {
+.trigger:focus-visible {
   border-color: $purple-focus;
   box-shadow: 0 0 0 3px $purple-surface;
 }
 
-.field option {
-  border-radius: 0.45rem;
-  padding: 0.55rem 0.5rem;
+.value {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
 }
 
-@media (max-width: 760px) {
-  .field select {
-    min-width: 100%;
-  }
+.placeholder {
+  color: $text-disabled;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  max-width: 100%;
+  border: 1px solid $purple-border;
+  border-radius: 999px;
+  background-color: $purple-surface-soft;
+  color: $purple;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 0.35rem 0.45rem 0.35rem 0.6rem;
+}
+
+.removeChip {
+  width: 1rem;
+  height: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: $purple;
+  cursor: pointer;
+}
+
+.removeChip:hover {
+  background-color: $purple-surface-hover;
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: $text-tertiary;
+}
+
+.options {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  left: 0;
+  max-height: 14rem;
+  overflow: auto;
+  border: 1px solid $border-default;
+  border-radius: 0.625rem;
+  background-color: $white;
+  box-shadow: 0 1rem 2rem rgba($black, 0.12);
+  padding: 0.35rem;
+}
+
+.option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: $jet-black;
+  cursor: pointer;
+  font-family: $google-sans;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.6rem 0.55rem;
+  text-align: left;
+}
+
+.option:hover {
+  background-color: $purple-surface-soft;
+}
+
+.checkbox {
+  width: 1.05rem;
+  height: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid $border-default;
+  border-radius: 0.35rem;
+  color: $white;
+}
+
+.checked {
+  border-color: $purple;
+  background-color: $purple;
 }

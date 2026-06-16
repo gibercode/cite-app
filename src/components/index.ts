@@ -1,3 +1,5 @@
+export { Button } from "./Button";
+export { CreateIncidentModal } from "./CreateIncidentModal";
 export { Layout } from "./Layout";
 export { Input } from "./Input";
 export { IssueFilters } from "./IssueFilters";

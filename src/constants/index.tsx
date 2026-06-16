@@ -38,3 +38,9 @@ export const statusOptions: StatusOption[] = [
 ];
 
 export const CARACAS_COORDINATES: [number, number] = [-66.9036, 10.4806];
+
+export const CREATE_INCIDENT_STEPS = [
+  "General",
+  "Clasificacion",
+  "Ubicacion",
+];

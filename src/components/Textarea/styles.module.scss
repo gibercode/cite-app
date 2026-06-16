@@ -34,9 +34,3 @@
   border-color: $purple-focus;
   box-shadow: 0 0 0 3px $purple-surface;
 }
-
-@media (max-width: 760px) {
-  .field textarea {
-    min-width: 100%;
-  }
-}

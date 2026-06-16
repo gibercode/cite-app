@@ -1,10 +1,8 @@
 import { useMemo } from "react";
 import { IssueList, IssueSummary } from "@/components";
-import dummyData from "@/assets/dummy-data.json";
+import { useIncidentStore } from "@/store";
 import type { Incident } from "@/types";
 import styles from "./styles.module.scss";
-
-const incidents = dummyData as Incident[];
 
 const isOverdue = (incident: Incident) => {
   if (!incident.dueDate || incident.status === "closed") return false;
@@ -21,6 +19,7 @@ const getLatestIncidents = (items: Incident[]) => {
 };
 
 export const Home = () => {
+  const incidents = useIncidentStore((state) => state.incidents);
   const summary = useMemo(
     () => ({
       total: incidents.length,
@@ -29,10 +28,12 @@ export const Home = () => {
         .length,
       overdue: incidents.filter(isOverdue).length,
     }),
-    [],
+    [incidents],
   );
 
-  const latestIncidents = useMemo(() => getLatestIncidents(incidents), []);
+  const latestIncidents = useMemo(() => getLatestIncidents(incidents), [
+    incidents,
+  ]);
 
   return (
     <div className={styles.page}>

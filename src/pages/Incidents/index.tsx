@@ -1,12 +1,14 @@
 import { useMemo } from "react";
-import { IssueFilters, IssueList } from "@/components";
-import dummyData from "@/assets/dummy-data.json";
+import { Plus } from "lucide-react";
+import { Button, IssueFilters, IssueList } from "@/components";
 import { priorityWeight } from "@/constants";
-import { useIncidentFiltersStore } from "@/store";
+import {
+  useCreateIncidentModalStore,
+  useIncidentFiltersStore,
+  useIncidentStore,
+} from "@/store";
 import type { Incident, Person } from "@/types";
 import styles from "./styles.module.scss";
-
-const incidents = dummyData as Incident[];
 
 const getDueTime = (incident: Incident) => {
   if (!incident.dueDate) return Number.POSITIVE_INFINITY;
@@ -42,6 +44,10 @@ const getAssignees = (items: Incident[]) => {
 };
 
 export const Incidents = () => {
+  const incidents = useIncidentStore((state) => state.incidents);
+  const openCreateIncidentModal = useCreateIncidentModalStore(
+    (state) => state.openCreateIncidentModal,
+  );
   const {
     priority,
     status,
@@ -51,7 +57,7 @@ export const Incidents = () => {
     setAssigneeId,
   } = useIncidentFiltersStore();
 
-  const assignees = useMemo(() => getAssignees(incidents), []);
+  const assignees = useMemo(() => getAssignees(incidents), [incidents]);
 
   const filteredIncidents = useMemo(() => {
     return sortIncidents(
@@ -66,7 +72,7 @@ export const Incidents = () => {
         return matchesPriority && matchesStatus && matchesAssignee;
       }),
     );
-  }, [assigneeId, priority, status]);
+  }, [assigneeId, incidents, priority, status]);
 
   return (
     <div className={styles.page}>
@@ -79,6 +85,14 @@ export const Incidents = () => {
             vencimiento.
           </p>
         </div>
+
+        <Button
+          className={styles.createButton}
+          icon={<Plus aria-hidden="true" size={18} />}
+          onClick={openCreateIncidentModal}
+        >
+          Crear incidencia
+        </Button>
       </header>
 
       <IssueFilters

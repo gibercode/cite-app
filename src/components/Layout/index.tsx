@@ -1,5 +1,7 @@
 import { Outlet } from "react-router-dom";
-import { Navbar, Sidebar } from "@/components";
+import { CreateIncidentModal } from "@/components/CreateIncidentModal";
+import { Navbar } from "@/components/Navbar";
+import { Sidebar } from "@/components/Sidebar";
 import styles from "./styles.module.scss";
 
 export const Layout = () => {
@@ -12,6 +14,7 @@ export const Layout = () => {
           <Outlet />
         </main>
       </div>
+      <CreateIncidentModal />
     </>
   );
 };

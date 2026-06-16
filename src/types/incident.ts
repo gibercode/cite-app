@@ -1,6 +1,21 @@
 import type { Person } from "./person";
 import type { IncidentStatus, Priority } from "./priority";
 
+export type IncidentCoordinates = {
+  lat: number;
+  lng: number;
+};
+
+export type IncidentMedia = {
+  id: string;
+  name: string;
+  type: string;
+  format: string;
+  size: number;
+  status: string;
+  url: string;
+};
+
 export type Incident = {
   id: string;
   sequenceId: string;
@@ -20,14 +35,16 @@ export type Incident = {
     id: string;
     name: string;
   };
-  owner: Person;
+  owner: Person | null;
   assignees: Person[];
   observers: Person[];
+  coordinates: IncidentCoordinates;
   locationDescription: string;
   dueDate: string | null;
   closingDate: string | null;
   createdAt: string;
   updatedAt: string;
+  media?: IncidentMedia[];
   tags: Array<{
     id: string;
     name: string;

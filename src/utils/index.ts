@@ -7,3 +7,5 @@ export const formatDate = (date: string | null) => {
     year: "numeric",
   }).format(new Date(date));
 };
+
+export { getPersonOptions, getUniquePeople } from "./people";
