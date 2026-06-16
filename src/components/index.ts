@@ -1,9 +1,12 @@
 export { Layout } from "./Layout";
+export { Input } from "./Input";
 export { IssueFilters } from "./IssueFilters";
 export { IssueList } from "./IssueList";
 export { IssueSummary } from "./IssueSummary";
+export { MultiSelect } from "./MultiSelect";
 export { Navbar } from "./Navbar";
 export { Select } from "./Select";
 export { Sidebar } from "./Sidebar";
 export { StatCard } from "./StatCard";
+export { Textarea } from "./Textarea";
 export { Map } from "./Map";
