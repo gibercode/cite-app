@@ -6,3 +6,4 @@ export { Navbar } from "./Navbar";
 export { Select } from "./Select";
 export { Sidebar } from "./Sidebar";
 export { StatCard } from "./StatCard";
+export { Map } from "./Map";

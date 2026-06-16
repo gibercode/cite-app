@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "@/App";
-import { Home, Incidents, NotFound } from "@/pages";
+import { Home, Incidents, MapPage, NotFound } from "@/pages";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "mapa",
-        element: <h1>Map</h1>,
+        element: <MapPage />,
       },
       {
         path: "*",

@@ -36,3 +36,5 @@ export const statusOptions: StatusOption[] = [
   { value: "on_pause", label: "En pausa" },
   { value: "closed", label: "Cerrada" },
 ];
+
+export const CARACAS_COORDINATES: [number, number] = [-66.9036, 10.4806];
