@@ -1,16 +1,16 @@
 import { Plus } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { Button, Map as MapView } from "@/components";
 import { CARACAS_COORDINATES } from "@/constants";
-import { useCreateIncidentModalStore, useIncidentStore } from "@/store";
+import { useIncidentStore } from "@/store";
+import type { LayoutOutletContext } from "@/types";
 import styles from "./styles.module.scss";
 
 export const MapPage = () => {
   const navigate = useNavigate();
   const incidents = useIncidentStore((state) => state.incidents);
-  const openCreateIncidentModal = useCreateIncidentModalStore(
-    (state) => state.openCreateIncidentModal,
-  );
+  const { openCreateIncidentModal } =
+    useOutletContext<LayoutOutletContext>();
   const incidentMarkers = incidents.map((incident) => ({
     id: incident.id,
     title: incident.title,

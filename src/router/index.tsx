@@ -1,35 +1,57 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "@/App";
-import { Home, IncidentDetail, Incidents, MapPage, NotFound } from "@/pages";
+import { ProtectedRoute, PublicAuthRoute } from "@/components";
+import {
+  Home,
+  IncidentDetail,
+  Incidents,
+  Login,
+  MapPage,
+  NotFound,
+} from "@/pages";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
+    element: <PublicAuthRoute />,
     children: [
       {
-        index: true,
-        element: <Home />,
+        path: "/login",
+        element: <Login />,
       },
+    ],
+  },
+  {
+    path: "/",
+    element: <ProtectedRoute />,
+    children: [
       {
-        path: "dashboard",
-        element: <Home />,
-      },
-      {
-        path: "incidencias",
-        element: <Incidents />,
-      },
-      {
-        path: "incidencias/:incidentId",
-        element: <IncidentDetail />,
-      },
-      {
-        path: "mapa",
-        element: <MapPage />,
-      },
-      {
-        path: "*",
-        element: <NotFound />,
+        element: <App />,
+        children: [
+          {
+            index: true,
+            element: <Home />,
+          },
+          {
+            path: "dashboard",
+            element: <Home />,
+          },
+          {
+            path: "incidencias",
+            element: <Incidents />,
+          },
+          {
+            path: "incidencias/:incidentId",
+            element: <IncidentDetail />,
+          },
+          {
+            path: "mapa",
+            element: <MapPage />,
+          },
+          {
+            path: "*",
+            element: <NotFound />,
+          },
+        ],
       },
     ],
   },

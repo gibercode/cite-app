@@ -1,3 +1,4 @@
+export { AuthProvider } from "./AuthProvider";
 export { Button } from "./Button";
 export { CreateIncidentModal } from "./CreateIncidentModal";
 export { DashboardCharts } from "./DashboardCharts";
@@ -8,6 +9,8 @@ export { IssueList } from "./IssueList";
 export { IssueSummary } from "./IssueSummary";
 export { MultiSelect } from "./MultiSelect";
 export { Navbar } from "./Navbar";
+export { ProtectedRoute } from "./ProtectedRoute";
+export { PublicAuthRoute } from "./PublicAuthRoute";
 export { Select } from "./Select";
 export { Sidebar } from "./Sidebar";
 export { StatCard } from "./StatCard";

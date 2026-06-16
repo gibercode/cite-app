@@ -24,6 +24,12 @@
   text-transform: capitalize;
 }
 
+.userMenu {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .avatar {
   width: 2.5rem;
   height: 2.5rem;
@@ -37,4 +43,22 @@
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0;
+}
+
+.logoutButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $border-default;
+  border-radius: 0.625rem;
+  background-color: $smoke-white;
+  color: $jet-black;
+  cursor: pointer;
+}
+
+.logoutButton:hover {
+  background-color: $purple-surface-soft;
+  color: $purple;
 }

@@ -8,8 +8,13 @@ import { MultiSelect } from "@/components/MultiSelect";
 import { Select } from "@/components/Select";
 import { Textarea } from "@/components/Textarea";
 import { CREATE_INCIDENT_STEPS, priorityOptions } from "@/constants";
-import { useCreateIncidentModalStore, useIncidentStore } from "@/store";
-import type { Incident, IncidentFormValues, Priority } from "@/types";
+import { useIncidentStore } from "@/store";
+import type {
+  CreateIncidentModalProps,
+  Incident,
+  IncidentFormValues,
+  Priority,
+} from "@/types";
 import { getPersonOptions, getUniquePeople } from "@/utils";
 import styles from "./styles.module.scss";
 import {
@@ -20,12 +25,13 @@ import {
 } from "./useCreateIncidentForm";
 import { buildCreateIncidentInput } from "./utils";
 
-export const CreateIncidentModal = () => {
+export const CreateIncidentModal = ({
+  isOpen,
+  onClose,
+}: CreateIncidentModalProps) => {
   const [stepIndex, setStepIndex] = useState(0);
   const lastStepIndex = CREATE_INCIDENT_STEPS.length - 1;
   const isLastStep = stepIndex === lastStepIndex;
-  const { isCreateIncidentModalOpen, closeCreateIncidentModal } =
-    useCreateIncidentModalStore();
   const { addIncident, incidents } = useIncidentStore();
 
   const people = useMemo(() => getUniquePeople(incidents), [incidents]);
@@ -75,12 +81,12 @@ export const CreateIncidentModal = () => {
     defaultCategoryId: categoryOptions[0]?.value ?? "",
   });
 
-  if (!isCreateIncidentModalOpen) return null;
+  if (!isOpen) return null;
 
   const closeModal = () => {
     reset();
     setStepIndex(0);
-    closeCreateIncidentModal();
+    onClose();
   };
 
   const nextStep = async () => {

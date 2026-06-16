@@ -1,13 +1,10 @@
 import { useMemo } from "react";
 import { Plus } from "lucide-react";
+import { useOutletContext } from "react-router-dom";
 import { Button, IssueFilters, IssueList } from "@/components";
 import { priorityWeight } from "@/constants";
-import {
-  useCreateIncidentModalStore,
-  useIncidentFiltersStore,
-  useIncidentStore,
-} from "@/store";
-import type { Incident, Person } from "@/types";
+import { useIncidentFiltersStore, useIncidentStore } from "@/store";
+import type { Incident, LayoutOutletContext, Person } from "@/types";
 import styles from "./styles.module.scss";
 
 const getDueTime = (incident: Incident) => {
@@ -45,9 +42,8 @@ const getAssignees = (items: Incident[]) => {
 
 export const Incidents = () => {
   const incidents = useIncidentStore((state) => state.incidents);
-  const openCreateIncidentModal = useCreateIncidentModalStore(
-    (state) => state.openCreateIncidentModal,
-  );
+  const { openCreateIncidentModal } =
+    useOutletContext<LayoutOutletContext>();
   const {
     priority,
     status,
