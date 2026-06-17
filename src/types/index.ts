@@ -17,10 +17,12 @@ export type {
 } from "./priority";
 export type { IncidentFormValues } from "./incidentForm";
 export type { IssueFiltersProps } from "./issueFilters";
+export type { IssueListProps } from "./issueList";
 export type { IssueSummaryProps } from "./issueSummary";
 export type { LayoutOutletContext } from "./layout";
 export type { LoginFormValues } from "./loginForm";
-export type { MapCoordinates, MapMarker } from "./map";
+export type { MapCoordinates, MapMarker, MapProps } from "./map";
+export type { StatCardProps, Trend } from "./statCard";
 export type { IncidentFiltersState } from "./incidentFiltersStore";
 export type { CreateIncidentInput, IncidentStoreState } from "./incidentStore";
 export type { MultiSelectProps } from "./multiSelect";

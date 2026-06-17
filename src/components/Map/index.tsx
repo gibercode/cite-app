@@ -1,19 +1,9 @@
-import { useEffect, useMemo, useRef, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import type { MapCoordinates, MapMarker } from "@/types";
+import type { MapCoordinates, MapProps } from "@/types";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
-
-type MapProps = {
-  center?: MapCoordinates;
-  height?: CSSProperties["height"];
-  markerCoordinates?: MapCoordinates;
-  markers?: MapMarker[];
-  onCoordinatesSelect?: (coordinates: MapCoordinates) => void;
-  onMarkerClick?: (marker: MapMarker) => void;
-  zoom?: number;
-};
 
 const defaultCoordinates: MapCoordinates = [-66.9036, 10.4806];
 

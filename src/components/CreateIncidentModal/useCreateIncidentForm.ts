@@ -11,14 +11,12 @@ export const validateDueDate = (value: string) => {
   if (value < getTodayInputValue()) {
     return "La fecha de vencimiento no puede estar en el pasado";
   }
-
   return true;
 };
 
 export const validateImageAttachments = (attachments?: FileList) => {
   const files = Array.from(attachments ?? []);
   const hasInvalidFile = files.some((file) => !file.type.startsWith("image/"));
-
   return hasInvalidFile ? "Solo se permiten archivos de imagen" : true;
 };
 

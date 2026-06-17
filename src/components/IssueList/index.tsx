@@ -1,16 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { priorityLabel, statusLabel } from "@/constants";
-import type { Incident } from "@/types";
+import type { IssueListProps } from "@/types";
 import { formatDate } from "@/utils";
 import styles from "./styles.module.scss";
 
 const PAGE_SIZE = 10;
-
-type IssueListProps = {
-  incidents: Incident[];
-  showPaginationInfo?: boolean;
-};
 
 export const IssueList = ({
   incidents,

@@ -1,13 +1,5 @@
+import type { StatCardProps, Trend } from "@/types";
 import styles from "./styles.module.scss";
-
-type Trend = "up" | "down" | "neutral";
-
-type StatCardProps = {
-  title: string;
-  value: string | number;
-  trend?: Trend;
-  trendLabel?: string;
-};
 
 const TrendArrow = ({ trend }: { trend: Trend }) => {
   if (trend === "up") return <span className={styles.arrowUp}>↗</span>;
