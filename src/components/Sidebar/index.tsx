@@ -1,11 +1,11 @@
-import { LayoutDashboard, Map, TriangleAlert } from "lucide-react";
+import { LayoutGrid, MapPinned, Siren } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 const links = [
-  { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/incidencias", label: "Incidencias", icon: TriangleAlert },
-  { to: "/mapa", label: "Mapa", icon: Map },
+  { to: "/dashboard", label: "Dashboard", icon: LayoutGrid },
+  { to: "/incidencias", label: "Incidencias", icon: Siren },
+  { to: "/mapa", label: "Mapa", icon: MapPinned },
 ];
 
 export const Sidebar = () => {
