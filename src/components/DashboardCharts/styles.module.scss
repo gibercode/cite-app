@@ -173,19 +173,3 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-@media (max-width: 1100px) {
-  .charts {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 560px) {
-  .statusLayout {
-    grid-template-columns: 1fr;
-  }
-
-  .donut {
-    width: 7rem;
-  }
-}

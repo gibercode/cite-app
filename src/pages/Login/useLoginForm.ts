@@ -10,10 +10,10 @@ export const loginValidationRules = {
     },
   },
   password: {
-    required: "La contrasena es requerida",
+    required: "La contraseña es requerida",
     minLength: {
       value: 6,
-      message: "La contrasena debe tener al menos 6 caracteres",
+      message: "La contraseña debe tener al menos 6 caracteres",
     },
   },
 };

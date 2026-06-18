@@ -40,6 +40,16 @@ const getAssignees = (items: Incident[]) => {
   );
 };
 
+const normalizeSearchValue = (value: string) =>
+  value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+
+const getSearchableText = (incident: Incident) =>
+  [incident.title, incident.description].filter(Boolean).join(" ");
+
 export const Incidents = () => {
   const incidents = useIncidentStore((state) => state.incidents);
   const { openCreateIncidentModal } =
@@ -48,14 +58,18 @@ export const Incidents = () => {
     priority,
     status,
     assigneeId,
+    searchQuery,
     setPriority,
     setStatus,
     setAssigneeId,
+    setSearchQuery,
   } = useIncidentFiltersStore();
 
   const assignees = useMemo(() => getAssignees(incidents), [incidents]);
 
   const filteredIncidents = useMemo(() => {
+    const normalizedSearchQuery = normalizeSearchValue(searchQuery);
+
     return sortIncidents(
       incidents.filter((incident) => {
         const matchesPriority =
@@ -64,11 +78,18 @@ export const Incidents = () => {
         const matchesAssignee =
           assigneeId === "all" ||
           incident.assignees.some((assignee) => assignee.id === assigneeId);
+        const matchesSearch =
+          !normalizedSearchQuery ||
+          normalizeSearchValue(getSearchableText(incident)).includes(
+            normalizedSearchQuery,
+          );
 
-        return matchesPriority && matchesStatus && matchesAssignee;
+        return (
+          matchesPriority && matchesStatus && matchesAssignee && matchesSearch
+        );
       }),
     );
-  }, [assigneeId, incidents, priority, status]);
+  }, [assigneeId, incidents, priority, searchQuery, status]);
 
   return (
     <div className={styles.page}>
@@ -95,15 +116,17 @@ export const Incidents = () => {
         priority={priority}
         status={status}
         assigneeId={assigneeId}
+        searchQuery={searchQuery}
         assignees={assignees}
         resultCount={filteredIncidents.length}
         onPriorityChange={setPriority}
         onStatusChange={setStatus}
         onAssigneeChange={setAssigneeId}
+        onSearchQueryChange={setSearchQuery}
       />
 
       <IssueList
-        key={`${priority}-${status}-${assigneeId}`}
+        key={`${priority}-${status}-${assigneeId}-${searchQuery}`}
         incidents={filteredIncidents}
       />
     </div>

@@ -90,8 +90,8 @@ export const Login = () => {
               <Input
                 {...field}
                 autoComplete="current-password"
-                label="Contrasena"
-                placeholder="Tu contrasena"
+                label="Contraseña"
+                placeholder="Tu contraseña"
                 type="password"
               />
             )}
